@@ -1,6 +1,8 @@
 var Walker = Class.extend({
     init: function(){
         Math.seed = 256;
+        this.iteration = 0;
+        this.grain = 0.65;
     }, 
 
     devideMap :function(map,iterations){
@@ -10,6 +12,8 @@ var Walker = Class.extend({
         var is_y = 1;
         var level = map.subMap(0,0,hw,hh); 
         //this.cornerStep(map);
+
+        this.iteration += 1;
 
         if(hw > 1)
         {
@@ -49,15 +53,15 @@ var Walker = Class.extend({
     },
 
     diamondStep: function(map){
-        //this.cornerStep(map);
         var avg = this.squareAvg(map); 
         var hsz = this.halfSize(map);
         map.tiles[hsz[0]][hsz[1]].type = 1;
-        var grain = (0.165 * Math.random());
-        //var grain = 0.05;
+        //this.grain = 0.265 * Math.random();
+        //this.grain = avg*0.265 * Math.random();
+        this.grain = 0.165 * Math.random();
         if(Math.random() > 0.5)
-            grain *= -1;
-        var newvalue = avg + (grain);
+            this.grain *= -1;
+        var newvalue = avg + (this.grain);
         //var newvalue = avg + (avg*grain);
         //map.setTileValue(hsz[0],hsz[1],newvalue);
         map.setTileValue(hsz[0],hsz[1],newvalue);

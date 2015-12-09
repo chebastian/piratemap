@@ -43,6 +43,8 @@ var TileMap = Class.extend({
     },
 
     draw: function(g){
+        var context = document.getElementById("gc").getContext('2d'); 
+        context.fillRect(0,0,this.width*32,this.height*32);
         for(var i = 0; i < this.width; i++){
             for(var j = 0; j < this.height; j++){
                 this.tiles[i][j].draw(null);

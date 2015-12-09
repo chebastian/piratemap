@@ -11,7 +11,7 @@ var Tile = Class.extend({
         this.gradient = 1.0;
         this.x = 0;
         this.y = 0;
-        this.sz = 3;
+        this.sz = 5;
         this.w = this.sz;
         this.h = this.sz;
         //this.value = Math.random();
@@ -37,12 +37,12 @@ var Tile = Class.extend({
     draw: function(g){
         var context = document.getElementById("gc").getContext('2d');
         context.globalAlpha = this.value;
-        //if(this.value < 0.8)
-        //    context.fillStyle = "#00FF00";
-        //else if(this.value < 0.5 )
-        //    context.fillStyle = "#1100FF";
-        //else 
-        //    context.fillStyle = "#3300FF";
+        if(this.value > 0.7)
+            context.fillStyle = "1100FF";
+        else if(this.value > 0.5 )
+            context.fillStyle = "#2200FF";
+        else 
+            context.fillStyle = "#11FF00";
         context.fillRect(this.x * this.w, this.y * this.h, this.w,this.w);
         context.strokeStyle = COLORS[this.type];//"#FFffF";
         //context.strokeRect(this.x * this.w, this.y * this.h, this.w,this.w);
