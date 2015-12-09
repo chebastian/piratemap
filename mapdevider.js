@@ -5,7 +5,21 @@ var Walker = Class.extend({
         this.grain = 0.65;
     }, 
 
-    devideMap :function(map,iterations){
+    generateMap: function(){
+        var sc = 2;
+        var sz = 8*sc;
+        var size = (sz*sz)+1;
+        var test = new Tile().setPos(1,1);
+        var map = new TileMap().createMap(size,size); 
+
+        this.cornerStep(map); 
+        this.devideMap(map);
+
+        var visualizer = new MapVisualizer(map);
+        visualizer.draw(map); 
+    },
+
+    devideMap :function(map){
         var hw = parseInt(map.width * 0.5);
         var hh = parseInt(map.height * 0.5); 
         var is_x = 0;
@@ -17,7 +31,6 @@ var Walker = Class.extend({
 
         if(hw > 1)
         {
-            for(var i in _.range(iterations)){ 
                 var splits = map.splitMap();
                 for(var split in splits){
                     if(this.halfSize(split) <= 2)
@@ -27,12 +40,9 @@ var Walker = Class.extend({
                     this.diamondStep(splits[split]);
                 }
                 for(var split in splits){
-                    this.devideMap(splits[split],iterations-1);
+                    this.devideMap(splits[split]);
                 }
-            }
-
-        }
-
+            } 
 
     },
 
@@ -56,14 +66,15 @@ var Walker = Class.extend({
         var avg = this.squareAvg(map); 
         var hsz = this.halfSize(map);
         map.tiles[hsz[0]][hsz[1]].type = 1;
-        //this.grain = 0.265 * Math.random();
-        //this.grain = avg*0.265 * Math.random();
-        this.grain = 0.165 * Math.random();
-        if(Math.random() > 0.5)
+        //this.grain = 0.165 * Math.random();
+        this.grain = Math.random() * 0.15;
+        if(Math.random() > 0.2)
             this.grain *= -1;
-        var newvalue = avg + (this.grain);
+
+        //
         //var newvalue = avg + (avg*grain);
         //map.setTileValue(hsz[0],hsz[1],newvalue);
+        var newvalue = avg + (this.grain);
         map.setTileValue(hsz[0],hsz[1],newvalue);
     },
 
@@ -77,8 +88,7 @@ var Walker = Class.extend({
         var rand = Math.random();
         for(var p in points){
             var point = points[p];
-            //map.setTileValue(point[0],point[1],rand);
-            map.setTileValue(point[0],point[1],Math.random());
+            map.setTileValue(point[0],point[1],rand);
         } 
     },
 
@@ -100,8 +110,6 @@ var Walker = Class.extend({
         var avg = 0;
         for(var p in points){
             var point = points[p];
-            //map.tiles[point[0]][point[1]].type = 0;
-            //map.setTileValue(point[0],point[1],values[p] + Math.random()*0.1);
             map.setTileValue(point[0],point[1],values[p]);
         } 
     },

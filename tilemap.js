@@ -94,6 +94,10 @@ var TileMap = Class.extend({
         return (val1 + val2)*0.5;
     },
 
+    getTile: function(x,y){
+        return this.tiles[x][y];
+    },
+
     accept: function(visitor){
     } 
 });

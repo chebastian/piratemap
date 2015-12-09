@@ -46,15 +46,22 @@ $(document).ready(function(){
     } 
 
     var walk = new Walker();
-    var sc = 1;
+    var sc = 2;
     var sz = 8*sc;
     var size = (sz*sz)+1;
     var test = new Tile().setPos(1,1);
     var map = new TileMap().createMap(size,size); 
-    //var map = new TileMap().createMap(5*9,5*9); 
-    walk.cornerStep(map);
-    //walk.devideMap(map,5*sc);
-    walk.devideMap(map,6);
-    map.draw(null);
+
+    walk.cornerStep(map); 
+    walk.devideMap(map);
+
+    var visualizer = new MapVisualizer(map);
+    //visualizer.draw(map);
+    //map.draw(null);
     setInterval(gameloop,1000/30); 
+
+    $('.valueChanger').change(function(){
+        var walk = new Walker();
+        walk.generateMap();
+    });
 });
