@@ -52,11 +52,13 @@ $(document).ready(function(){
     var test = new Tile().setPos(1,1);
     this.map = new TileMap().createMap(size,size); 
 
+    walk.initValues();
     walk.cornerStep(this.map); 
     walk.devideMap(this.map);
 
     this.vis = new MapVisualizer(this.map);
-    //visualizer.draw(map);
+    this.vis.setupValues();
+    this.vis.draw(this.map);
     //map.draw(null);
     setInterval(gameloop,1000/30); 
     var _this = this;
