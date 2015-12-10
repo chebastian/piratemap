@@ -77,4 +77,13 @@ $(document).ready(function(){
         vis.setupValues();
         vis.draw(_this.map); 
     });
+
+    $('#regen').click(function(){
+        var walk = new Walker();
+        walk.initValues();
+        _this.map = walk.generateMap();
+        var vis = new MapVisualizer(_this.map);
+        vis.setupValues();
+        vis.draw(_this.map); 
+    });
 });
