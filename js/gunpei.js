@@ -60,6 +60,8 @@ $(document).ready(function(){
     this.vis.setupValues();
     this.vis.draw(this.map);
     //map.draw(null);
+
+
     setInterval(gameloop,1000/30); 
     var _this = this;
 
