@@ -3,6 +3,7 @@ var Walker = Class.extend({
         Math.seed = 256;
         this.iteration = 0;
         this.grain = 0.65;
+
     }, 
 
     generateMap: function(){
@@ -11,6 +12,8 @@ var Walker = Class.extend({
         var size = (sz*sz)+1;
         var test = new Tile().setPos(1,1);
         var map = new TileMap().createMap(size,size); 
+
+        Math.seedrandom($("#randSeed").val());
 
         this.cornerStep(map); 
         this.devideMap(map);

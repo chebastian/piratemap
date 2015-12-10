@@ -76,13 +76,15 @@ var TileMap = Class.extend({
         //var topRight = this.subMap(halfW,0,halfW,halfH);
         //var bottomLeft = this.subMap(0,halfH,halfW,halfH);
         //var bottomRight = this.subMap(halfW,halfH,halfW,halfH);
+
         var topLeft = this.subMap(0,0, halfW,halfH);
         var topRight = this.subMap(halfW-1,0, halfW,halfH);
         var bottomLeft = this.subMap(0,halfH-1, halfW,halfH);
         var bottomRight = this.subMap(halfW-1,halfH-1, halfW,halfH);
+
         var arr = [];
-        arr.push(topLeft);
         arr.push(topRight);
+        arr.push(topLeft);
         arr.push(bottomLeft);
         arr.push(bottomRight);
         return arr;
