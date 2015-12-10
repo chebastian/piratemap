@@ -1,0 +1,44 @@
+*{
+margin: 0px;
+padding:0px;
+}
+#gamefield 
+{
+    border: 1px solid black;
+    float: left;
+}
+
+#gamefield > *
+{
+    float: left; 
+}
+
+ul
+{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+li  
+{
+    list-style-type: none;
+    padding: 0px;
+margin: 0px;
+} 
+
+canvas
+{
+    margin: 0px;
+    padding:0px; 
+}
+
+#queues
+{
+    margin-top: 15px;
+}
+
+div{
+}
+
+

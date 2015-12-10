@@ -1,7 +1,14 @@
 
 var MapVisualizer = Class.extend({
+
     init: function(){
     }, 
+
+    setupValues: function(){
+        this.seaMin = $("#seaMin").val();
+        this.seaMid = $("#seaMid").val();
+        this.ground = $("#groundMin").val();
+    },
 
     draw: function(map){
         var context = document.getElementById("gc").getContext('2d'); 
@@ -14,9 +21,9 @@ var MapVisualizer = Class.extend({
             for(var j = 0; j < map.height; j++){
                 var tile = map.getTile(i,j);
                 context.globalAlpha = tile.value;
-                if( tile.value > 0.7)
+                if( tile.value > this.seaMin)
                     context.fillStyle = "1100FF";
-                else if( tile.value > 0.5 )
+                else if( tile.value > this.seaMid)
                     context.fillStyle = "#2200FF";
                 else 
                     context.fillStyle = "#11FF00";

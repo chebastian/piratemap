@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <script src="./js/underscore-min.js"></script>
+        <script src="./js/jquery.js"></script>
+        <script src="./js/Class.js"></script>
+        <script src="./js/tile.js"></script>
+        <script src="./js/tilemap.js"></script>
+        <script src="./js/mapdevider.js"></script>
+        <script src="./js/mapvisualizer.js"></script>
+        <script src="./js/gunpei.js"></script>
+        <script type="text/javascript" src="js/materialize.min.js"></script> 
+        <link rel="stylesheet" href="./css/style.css">
+        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+
+    </head>
+
+    <body>
+    <div class="section">
+        <div class="row">
+            <div class="col s12 m7">
+                <canvas id="gc" width="800" height="1280"></canvas>
+            </div>
+            <div class="col s12 m4">
+                <form action="#">
+                    <p class ="rang-field">
+                    <p>
+                    Grain modifier
+                    </p>
+                        <input class="valueChanger" id="grainModifier" type="range" min="0" max="1" step="0.01"/>
+                    <p>
+                    Something else
+                    </p>
+                        <input class="valueChanger"id="signChanger" type="range" min="0" max="1" step="0.05"/>
+                    </p>
+
+
+                    <!--COLORS-->
+                    <p>
+                    Sea max
+                    </p>
+                        <input class="colorChanger" value="0.7"id="seaMin" type="range" min="0" max="1" step="0.05"/>
+                    <p>
+                    Sea mid
+                    </p>
+                        <input value="0.5" class="colorChanger"id="seaMid" type="range" min="0" max="1" step="0.05"/>
+                    </p>
+                    ground min
+                    </p>
+                        <input value="" class="colorChanger"id="groundMin" type="range" min="0" max="1" step="0.05"/>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    </body>
+
+</html>

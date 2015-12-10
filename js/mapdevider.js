@@ -16,7 +16,15 @@ var Walker = Class.extend({
         this.devideMap(map);
 
         var visualizer = new MapVisualizer(map);
+        visualizer.setupValues();
         visualizer.draw(map); 
+        return map;
+    },
+
+    initValues: function(){
+        this.grainModifier = $("#grainModifier").val();
+        this.signChanger = $("#signChanger").val();
+
     },
 
     devideMap :function(map){
@@ -67,8 +75,9 @@ var Walker = Class.extend({
         var hsz = this.halfSize(map);
         map.tiles[hsz[0]][hsz[1]].type = 1;
         //this.grain = 0.165 * Math.random();
-        this.grain = Math.random() * 0.15;
-        if(Math.random() > 0.2)
+        this.grain = Math.random() * this.grainModifier;
+        //this.grain *= modifier;
+        if(Math.random() > this.signChanger)
             this.grain *= -1;
 
         //

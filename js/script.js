@@ -4,9 +4,9 @@ var Tile = Class.extend({
     },
 
     draw: function(g){
-        var context = $("#gc").getContext('2d');
+        var context = document.getElementById("gc").getContext('2d');
         context.fillStyle = "#CC00CC";
-        context.fillRect(0,0,200,20);
+        context.fillRect(0,0,200,200);
     } 
 
 });
