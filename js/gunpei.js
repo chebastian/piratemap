@@ -61,6 +61,7 @@ $(document).ready(function(){
     this.vis.draw(this.map);
     //map.draw(null);
 
+    var balle = 2;
 
     setInterval(gameloop,1000/30); 
     var _this = this;
