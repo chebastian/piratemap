@@ -7,6 +7,8 @@ var MapVisualizer = Class.extend({
     setupValues: function(){
         this.seaMid = $("#seaMid").val();
         this.ground = $("#groundMin").val();
+
+        this.baseColor = "#000000";
     },
 
     draw: function(map){
@@ -20,6 +22,8 @@ var MapVisualizer = Class.extend({
             for(var j = 0; j < map.height; j++){
                 var tile = map.getTile(i,j);
                 context.globalAlpha = tile.value;
+
+                //context.fillStyle = this.baseColor;
                 if( tile.value > this.seaMid)
                     context.fillStyle = "#2200FF";
                 else 
