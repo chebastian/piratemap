@@ -6,7 +6,7 @@ var Walker = Class.extend({
     }, 
 
     generateMap: function(){
-        var sc = 2;
+        var sc = 4;
         var sz = 8*sc;
         var size = (sz*sz)+1;
         var test = new Tile().setPos(1,1);
@@ -84,7 +84,7 @@ var Walker = Class.extend({
             this.grain *= -1;
 
         var newvalue = avg + (this.grain);
-        map.setTileValue(hsz[0],hsz[1],newvalue);
+        map.setTileValue(hsz[0],hsz[1],newvalue % 1.0);
     },
 
     cornerStep: function(map){
